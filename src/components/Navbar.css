@@ -1,0 +1,26 @@
+/* src/components/Navbar.css */
+@keyframes shrinkNavbar {
+  from {
+    height: var(--navbar-height);
+  }
+  to {
+    height: 40px;
+  }
+}
+
+.shrink-navbar {
+  animation: shrinkNavbar 0.3s;
+}
+
+/* Add the following styles to change the background color and align the content */
+
+.nav{
+  background-color: var(--navbar-color);
+}
+
+
+.nav-bar{
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+}

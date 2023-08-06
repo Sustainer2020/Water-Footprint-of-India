@@ -1,0 +1,81 @@
+/* src/styles.css */
+:root {
+    --primary-color: #81d9d3;
+    --navbar-background-color: transparent;
+    --background-gradient-start: #fcfcfd;
+    --background-gradient-end: #ebf0f1;
+    --big-heading-font-family: "Montserrat", sans-serif;
+    --big-heading-font-size: 48px;
+    --big-heading-font-weight: bold;
+    --big-heading-text-color: #2e5b6b;
+    --short-description-font-family: "Open Sans", sans-serif;
+    --short-description-font-size: 18px;
+    --short-description-text-color: #2e5b6b;
+    --navbar-height: 100px;
+    --navbar-color:black;
+    --navbar-button-font-family: "Montserrat", sans-serif;
+    --navbar-button-font-size: 25px;
+    --navbar-button-font-weight: 600;
+    --navbar-button-text-color: white;
+    --navbar-button-hover-color: #f9a560;
+    --interactive-map-hover-color: #f9a560;
+}
+
+.fixed-button-group {
+    position: fixed;
+    top: 50%; /* Adjust the desired position from the top */
+    left: 10px; /* Adjust the desired position from the left */
+    transform: translateY(-50%);
+    /* background-color: black; */
+    /* Add any additional styling properties you want for the fixed button group */
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+   
+    font-family: var(--short-description-font-family);
+    font-size: var(--short-description-font-size);
+    color: var(--short-description-text-color);
+    /* background: linear-gradient(
+        to bottom,
+        var(--background-gradient-start),
+        var(--background-gradient-end)
+    ); */
+    /* background-image: url(C:/Users/MSI/Desktop/Project/water/public/assets/91689.jpg); */
+    height: 100vh;
+}
+
+#root{
+    height: 100vh;
+}
+
+.navbar {
+    background-color: var(--navbar-background-color);
+    height: var(--navbar-height);
+}
+.navbar .navbar-brand{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: var(--navbar-button-font-size);
+    font-weight: var(--navbar-button-font-weight);
+    color: var(--navbar-button-text-color);
+}
+
+.navbar .nav-link {
+    font-family: var(--navbar-button-font-family);
+    font-size: var(--navbar-button-font-size);
+    font-weight: var(--navbar-button-font-weight);
+    color: var(--navbar-button-text-color);
+}
+
+.navbar .nav-link:hover {
+    color: var(--navbar-button-hover-color);
+}
+
+
+.map-state:hover {
+    fill: var(--interactive-map-hover-color);
+}

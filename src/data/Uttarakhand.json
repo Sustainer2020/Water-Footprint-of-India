@@ -1,0 +1,301 @@
+{
+    "stateName": "Uttarakhand",
+    "industriesData": [
+        {
+            "name": "Automobile industry",
+            "waterFootprint": 192.87
+        },
+        {
+            "name": "Cement",
+            "waterFootprint": 559.2
+        },
+        {
+            "name": "Steel",
+            "waterFootprint": 23.75
+        },
+        {
+            "name": "Pharmaceuticals",
+            "waterFootprint": 10.41
+        },
+        {
+            "name": "Food Processing Industries",
+            "waterFootprint": 4.52
+        },
+        {
+            "name": "Cosmetics",
+            "waterFootprint": 3.93
+        },
+        {
+            "name": "Textile",
+            "waterFootprint": 2.61
+        }
+    ],
+    "agricultureData": {
+        "fruitsData": [
+            {
+                "name": "Mango",
+                "waterFootprint": 1414.3
+            },
+            {
+                "name": "Citrus",
+                "waterFootprint": 120.29
+            },
+            {
+                "name": "Pear",
+                "waterFootprint": 46.11
+            },
+            {
+                "name": "Apple",
+                "waterFootprint": 90.83
+            },
+            {
+                "name": "Peach",
+                "waterFootprint": 26.12
+            },
+            {
+                "name": "Plum",
+                "waterFootprint": 16.86
+            },
+            {
+                "name": "Litchi",
+                "waterFootprint": 33.64
+            },
+            {
+                "name": "Walnut",
+                "waterFootprint": 38.75
+            },
+            {
+                "name": "Guava",
+                "waterFootprint": 11.59
+            },
+            {
+                "name": "Others",
+                "waterFootprint": 65.96
+            }
+        ],
+        "vegetablesData": [
+            {
+                "name": "Tomato",
+                "waterFootprint": 23.68
+            },
+            {
+                "name": "Pea",
+                "waterFootprint": 58.7
+            },
+            {
+                "name": "Cabbage",
+                "waterFootprint": 16.44
+            },
+            {
+                "name": "Radish",
+                "waterFootprint": 30.26
+            },
+            {
+                "name": "Onion",
+                "waterFootprint": 25.16
+            },
+            {
+                "name": "French bean",
+                "waterFootprint": 12.26
+            },
+            {
+                "name": "Cauliflower",
+                "waterFootprint": 15.06
+            },
+            {
+                "name": "Brinjal/Eggplant",
+                "waterFootprint": 15.64
+            },
+            {
+                "name": "Okra",
+                "waterFootprint": 7.04
+            },
+            {
+                "name": "Capsicum",
+                "waterFootprint": 7.06
+            },
+            {
+                "name": "Potato",
+                "waterFootprint": 105.42
+            },
+            {
+                "name": "Others",
+                "waterFootprint": 33.9
+            }
+        ],
+        "spicesData": [
+            {
+                "name": "Ginger",
+                "waterFootprint": 58.05
+            },
+            {
+                "name": "Turmeric",
+                "waterFootprint": 26.67
+            },
+            {
+                "name": "Garlic",
+                "waterFootprint": 18.75
+            },
+            {
+                "name": "Chilli",
+                "waterFootprint": 15.05
+            },
+            {
+                "name": "Fenugreek",
+                "waterFootprint": 4.58
+            },
+            {
+                "name": "Coriander",
+                "waterFootprint": 4.2
+            },
+            {
+                "name": "Large Cardamom",
+                "waterFootprint": 0.47
+            },
+            {
+                "name": "Others",
+                "waterFootprint": 1.4
+            }
+        ],
+        "floricultureData": [
+            {
+                "name": "Gerbera",
+                "waterFootprint": 2.22
+            },
+            {
+                "name": "Carnation",
+                "waterFootprint": 0.11
+            },
+            {
+                "name": "Rose",
+                "waterFootprint": 0.6
+            },
+            {
+                "name": "Marigold",
+                "waterFootprint": 1.16
+            },
+            {
+                "name": "Gladiolus",
+                "waterFootprint": 0.5
+            },
+            {
+                "name": "Rajnigandha",
+                "waterFootprint": 0.1
+            },
+            {
+                "name": "Lilium",
+                "waterFootprint": 0.02
+            },
+            {
+                "name": "Others",
+                "waterFootprint": 0.21
+            }
+        ],
+        "rabiCropsData": [
+            {
+                "name": "Wheat",
+                "waterFootprint": 1432.3
+            },
+            {
+                "name": "Jowar",
+                "waterFootprint": 192.37
+            },
+            {
+                "name": "Gram",
+                "waterFootprint": 0.31
+            },
+            {
+                "name": "Lentil",
+                "waterFootprint": 7.45
+            },
+            {
+                "name": "Mustard",
+                "waterFootprint": 7.56
+            }
+        ],
+        "kharifCropsData": [
+            {
+                "name": "Sugarcane",
+                "waterFootprint": 2205
+            },
+            {
+                "name": "Paddy",
+                "waterFootprint": 1580.99
+            },
+            {
+                "name": "Millet",
+                "waterFootprint": 426.51
+            },
+            {
+                "name": "Corn",
+                "waterFootprint": 95.55
+            },
+            {
+                "name": "Sanwa(Barnyard millet)",
+                "waterFootprint": 80.95
+            },
+            {
+                "name": "Amaranth seeds(Ramdana)",
+                "waterFootprint": 13.13
+            },
+            {
+                "name": "Black gram split(Urad)",
+                "waterFootprint": 24.25
+            },
+            {
+                "name": "Horse gram(Kuthi/gahat)",
+                "waterFootprint": 16.94
+            },
+            {
+                "name": "Black bean",
+                "waterFootprint": 11.71
+            },
+            {
+                "name": "Beans(Rajma)",
+                "waterFootprint": 3.96
+            },
+            {
+                "name": "Soyabean",
+                "waterFootprint": 47.47
+            },
+            {
+                "name": "Others",
+                "waterFootprint": 4.01
+            }
+        ],
+        "livestockData": [
+            {
+                "name": "Cattle(cows)",
+                "waterFootprint": 42.16
+            },
+            {
+                "name": "Buffalo",
+                "waterFootprint": 44.25
+            },
+            {
+                "name": "Sheep",
+                "waterFootprint": 0.31
+            },
+            {
+                "name": "Goat",
+                "waterFootprint": 4.72
+            },
+            {
+                "name": "Horse/Pony/Mule/Donkey",
+                "waterFootprint": 0.35
+            },
+            {
+                "name": "Pig",
+                "waterFootprint": 0.07
+            },
+            {
+                "name": "Poultry",
+                "waterFootprint": 0.51
+            },
+            {
+                "name": "Yak/Dog/Rabbit",
+                "waterFootprint": 0.3
+            }
+        ]
+    }
+}
