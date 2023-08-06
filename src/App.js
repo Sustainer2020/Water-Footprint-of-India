@@ -40,8 +40,8 @@ const App = () => {
                     element={<Home setSelectedState={setSelectedState} />}
                 />
                 <Route
-                    path={`/Calculator`}
-                    element={<Calculator/>}
+                    path="/calculator"
+                    element={<Calculator />}
                 />
                 <Route
                     path={`/${selectedState}`}

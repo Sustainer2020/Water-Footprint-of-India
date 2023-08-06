@@ -16,7 +16,7 @@ const HeroSection = () => {
 </p>
       </div>
     </div>
-      <Button variant="dark" href="/Calculator">Calculate Your Water Footprint</Button>
+      <Button variant="dark" href="/calculator">Calculate Your Water Footprint</Button>
       </div>
       
   );
