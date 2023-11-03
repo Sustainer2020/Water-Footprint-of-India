@@ -9,7 +9,7 @@ import HeroSection from "./components/HeroSection";
 import Footer from "./components/Footer";
 import StatePage from "./components/StatePage";
 import IndiaMap from "./components/IndiaMap";
-import Calculator from "./components/Calculator";
+import Calculator from "./components/WaterCalculator.js";
 
 const Home = ({ setSelectedState }) => {
     function handleStateClick(stateName) {
@@ -39,10 +39,7 @@ const App = () => {
                     path="/"
                     element={<Home setSelectedState={setSelectedState} />}
                 />
-                <Route
-                    path="/calculator"
-                    element={<Calculator />}
-                />
+                <Route path="/calculator" element={<Calculator />} />
                 <Route
                     path={`/${selectedState}`}
                     element={<StatePage selectedState={selectedState} />}

@@ -1,36 +1,35 @@
 {
-    "stateName": "Uttarakhand",
-    "industriesData": [
-        {
-            "name": "Automobile industry",
-            "waterFootprint": 192.87
-        },
-        {
-            "name": "Cement",
-            "waterFootprint": 559.2
-        },
-        {
-            "name": "Steel",
-            "waterFootprint": 23.75
-        },
-        {
-            "name": "Pharmaceuticals",
-            "waterFootprint": 10.41
-        },
-        {
-            "name": "Food Processing Industries",
-            "waterFootprint": 4.52
-        },
-        {
-            "name": "Cosmetics",
-            "waterFootprint": 3.93
-        },
-        {
-            "name": "Textile",
-            "waterFootprint": 2.61
-        }
-    ],
-    "agricultureData": {
+    "Uttarakhand" : {
+        "industriesData": [
+            {
+                "name": "Automobile industry",
+                "waterFootprint": 192.87
+            },
+            {
+                "name": "Cement",
+                "waterFootprint": 559.2
+            },
+            {
+                "name": "Steel",
+                "waterFootprint": 23.75
+            },
+            {
+                "name": "Pharmaceuticals",
+                "waterFootprint": 10.41
+            },
+            {
+                "name": "Food Processing Industries",
+                "waterFootprint": 4.52
+            },
+            {
+                "name": "Cosmetics",
+                "waterFootprint": 3.93
+            },
+            {
+                "name": "Textile",
+                "waterFootprint": 2.61
+            }
+        ],
         "fruitsData": [
             {
                 "name": "Mango",
@@ -299,3 +298,6 @@
         ]
     }
 }
+
+
+

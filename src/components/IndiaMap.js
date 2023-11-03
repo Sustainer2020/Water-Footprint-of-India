@@ -1,34 +1,41 @@
 // IndiaMap.js
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Link, useNavigate } from "react-router-dom";
 import India from "@svg-maps/india";
 import { SVGMap } from "react-svg-map";
 import "react-svg-map/lib/index.css";
 
 function IndiaMap({ onStateClick }) {
-  const [stateCode, setStateCode] = useState("");
-  const [stateName, setStateName] = useState("");
-  const navigate = useNavigate();
+    const [stateCode, setStateCode] = useState("");
+    const [stateName, setStateName] = useState("");
+    const navigate = useNavigate();
 
-  function onLocationClick(event) {
-    setStateCode(event.target.id);
-    setStateName(event.target.getAttribute("name"));
+    useEffect(() => {
+        if (stateName) {
+            navigate(`/${stateName}`);
+            onStateClick(stateName);
+        }
+    }, [stateName, navigate, onStateClick]);
 
-    navigate(`/${stateName}`);
+    function onLocationClick(event) {
+        setStateCode(event.target.id);
+        setStateName(event.target.getAttribute("name"));
 
-    console.log("Id", event.target.id);
-    console.log("Name", event.target.getAttribute("name"));
+        navigate(`/${stateName}`);
 
-    // Call the callback function from App.js and pass stateName as an argument
-    onStateClick(stateName);
-  }
+        console.log("Id", event.target.id);
+        console.log("Name", event.target.getAttribute("name"));
 
-  return (
-    <div>
-      <SVGMap map={India} onLocationClick={onLocationClick} />
-    </div>
-  );
+        // Call the callback function from App.js and pass stateName as an argument
+        onStateClick(stateName);
+    }
+
+    return (
+        <div>
+            <SVGMap map={India} onLocationClick={onLocationClick} />
+        </div>
+    );
 }
 
 export default IndiaMap;

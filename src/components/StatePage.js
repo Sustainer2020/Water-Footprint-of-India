@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Pie } from '@ant-design/plots';
-import UttarakhandData from '../data/Uttarakhand.json'; // Replace 'path/to' with the actual path to your JSON file
+import StateData from '../data/StateData.json'; 
 import NavigationButton from './Statesidebar';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -10,82 +10,39 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import "../styles.css"
 
-const Chart=({name})=>{
-  const getChartData = (name) => {
+const Chart=({name,state})=>{
+  const getChartData = (name,state) => {
     // Extracting data for the chart from industriesData
 
-    if(name === 'industriesData'){
-      const industriesData = UttarakhandData.industriesData.map((iterator) => ({
-        type: iterator.name,
-        value: iterator.waterFootprint,
-      }));
-      var chartData = [...industriesData];
-    }
-
-    if(name === 'fruitsData'){
-      const fruitsData = UttarakhandData.agricultureData.fruitsData.map((iterator) => ({
-        type: iterator.name,
-        value: iterator.waterFootprint,
-      }));
-      var chartData = [...fruitsData];
-    }
-    
-    if(name === 'vegetablesData'){
-      const vegetablesData = UttarakhandData.agricultureData.vegetablesData.map((vegetable) => ({
-        type: vegetable.name,
-        value: vegetable.waterFootprint,
-      }));
-      var chartData = [...vegetablesData];
-    }
-
-    if(name === 'spicesData'){
-      const spicesData = UttarakhandData.agricultureData.spicesData.map((spice) => ({
-        type: spice.name,
-        value: spice.waterFootprint,
-      }));
-      var chartData = [...spicesData];
-    }
-
-    if(name === 'floricultureData'){
-      const floricultureData = UttarakhandData.agricultureData.floricultureData.map((iterator) => ({
-        type: iterator.name,
-        value: iterator.waterFootprint,
-      }));
-      var chartData = [...floricultureData];
-    }
-
-    if(name === 'rabiCropsData'){
-      const rabiCropsData = UttarakhandData.agricultureData.rabiCropsData.map((iterator) => ({
-        type: iterator.name,
-        value: iterator.waterFootprint,
-      }));
-      var chartData = [...rabiCropsData];
-    }
-
-    if(name === 'kharifCropsData'){
-      const kharifCropsData = UttarakhandData.agricultureData.kharifCropsData.map((iterator) => ({
-        type: iterator.name,
-        value: iterator.waterFootprint,
-      }));
-      var chartData = [...kharifCropsData];
-    }
-
   
+ // ---------------------------------------------------------------------------------------------// 
+    // For Now we don't have data for each state hence making state to always uttarakhand
+    //But if data is present replace  StateData['Uttarakhand'] to ---> StateData[state];
+    const stateName=StateData[`Uttarakhand`];
+//--------------------------------------------------------------------------------------------------//
 
-    if(name === 'livestockData'){
-      const livestockData = UttarakhandData.agricultureData.livestockData.map((iterator) => ({
+
+    const selectedData = stateName[name];
+
+    if (selectedData) {
+      const items = selectedData.map((iterator) => ({
         type: iterator.name,
         value: iterator.waterFootprint,
       }));
-      var chartData = [...livestockData];
+      
+      var chartData = [...items];
+    //   const industriesData = UttarakhandData.industriesData.map((iterator) => ({
+    //     type: iterator.name,
+    //     value: iterator.waterFootprint,
+    //   }));
+    //   var chartData = [...industriesData];
     }
-
 
     return chartData;
   };
 
   // Get the data for the pie chart
-  const data = getChartData(name);
+  const data = getChartData(name,state);
 
   // Config for the pie chart
   const config = {
@@ -133,8 +90,8 @@ const StatePage = ({ selectedState }) => {
         <Dropdown.Item className="bg-dark text-light" eventKey="6" href='#kharifCropsData'>Kharif Crops</Dropdown.Item>
       </DropdownButton>
       <Button variant="dark" href="#livestockData">Livestock</Button>
-      <Button variant="dark">Button</Button>
-      <Button variant="dark">Button</Button>
+      <Button variant="dark">Environment</Button>
+      <Button variant="dark">Overall Analysis</Button>
 
       
     </ButtonGroup>
@@ -144,16 +101,16 @@ const StatePage = ({ selectedState }) => {
       <h2>State Page of {selectedState}</h2>
       <br></br>
       <h3 id="industriesData">Industries Data</h3>
-      <Chart name='industriesData' />
+      <Chart name='industriesData' state={selectedState} />
       <h3 id="agricultureData">Agriculture Data</h3>
       
-      <div id="fruitsData"><h4>Fruits</h4><Chart name='fruitsData' /></div>
-      <div id="vegetablesData"><h4>Vegetables</h4><Chart name='vegetablesData'  /></div>
-      <div id="spicesData"><h4>Spices</h4><Chart name='spicesData' /></div>
-      <div id="floricultureData"><h4>Flowers</h4><Chart name='floricultureData' /></div>
-      <div id="rabiCropsData"><h4>Rabi Crops</h4><Chart name='rabiCropsData' id="rabiCropsData"/></div>
-      <div id="kharifCropsData"><h4>Kharif Crops</h4><Chart name='kharifCropsData' /></div>
-      <div id="livestockData"><h4>Livestocks</h4><Chart name='livestockData' /></div>
+      <div id="fruitsData"><h4>Fruits</h4><Chart name='fruitsData' state={selectedState} /></div>
+      <div id="vegetablesData"><h4>Vegetables</h4><Chart name='vegetablesData' state={selectedState} /></div>
+      <div id="spicesData"><h4>Spices</h4><Chart name='spicesData' state={selectedState}/></div>
+      <div id="floricultureData"><h4>Flowers</h4><Chart name='floricultureData' state={selectedState}/></div>
+      <div id="rabiCropsData"><h4>Rabi Crops</h4><Chart name='rabiCropsData' state={selectedState} id="rabiCropsData"/></div>
+      <div id="kharifCropsData"><h4>Kharif Crops</h4><Chart name='kharifCropsData' state={selectedState} /></div>
+      <div id="livestockData"><h4>Livestocks</h4><Chart name='livestockData' state={selectedState} /></div>
      </div>
             </div>
             
