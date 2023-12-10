@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LinearGradient = props => {
+const LinearGradient = (props) => {
   const { data } = props;
+  const { min = 0, max = 100, fromColor, toColor } = data;
+
   const boxStyle = {
     width: 180,
-    margin: 'auto'
+    margin: 'auto',
+    display: 'flex',
+    justifyContent: 'space-between', // Align min and max values at the ends
   };
+  
   const gradientStyle = {
     backgroundImage: `linear-gradient(to right, ${data.fromColor} , ${data.toColor})`,
     height: 20
