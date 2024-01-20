@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './WaterCalculator.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function WaterFootprintCalculator() {
   const [country, setCountry] = useState('');
@@ -40,15 +41,30 @@ function WaterFootprintCalculator() {
   };
 
   return (
-    <div>
-      <p className="introduction">
-        Your individual water footprint is equal to the water required to produce the goods and services consumed by you...
-      </p>
-
-      <form onSubmit={handleSubmit}>
-        <table>
-          <tbody>
-            <tr>
+    <div className="container">
+    
+          
+    <div className="row">
+    
+            
+    <div className="col-md-8 offset-md-2">
+    
+              
+    <div className="card">
+    
+                
+    <div className="card-header">
+                  <h2>Water Footprint Calculator</h2>
+                </div>
+                <div className="card-body">
+                  <form onSubmit={handleSubmit}>
+                    <p className="introduction">
+                      Your individual water footprint is equal to the water required to produce the goods and services consumed by you...
+                    </p>
+    
+                    <table className="table">
+                      <tbody>
+                        <tr>
               <td width="50%">Country of residence</td>
               <td width="50%">
                 <select name="Country_ID" value={country} onChange={(e) => setCountry(e.target.value)}>
@@ -297,10 +313,14 @@ function WaterFootprintCalculator() {
             </tr>
           </tbody>
         </table>
-        <div style={{ marginTop: '12px' }}>
-          <input value="Calculate my water footprint" type="submit" />
+        <div className="form-submit-section text-center">
+                  <button className="btn btn-primary" type="submit">Calculate my water footprint</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

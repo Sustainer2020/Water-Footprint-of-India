@@ -1,54 +1,41 @@
 /* WaterCalculator.css */
-
-.introduction{
-  margin: 10px;
-  font-size: 30px;
-}
-
-.container {
-  max-width: 600px;
+.water-calculator-container {
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
 }
 
-.form-table {
-  width: 100%;
-  border-collapse: collapse;
+.water-form {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
   margin-bottom: 20px;
 }
 
-.form tr{
-  margin: 10px;
+.form-section h2 {
+  color: #333;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
-.form-table td {
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-right: 10px;
-}
-
-.form-table select,
-.form-table input[type="text"],
-.form-table input[type="radio"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.form-table input[type="submit"] {
-  background-color: #007bff;
+.calculate-button {
+  background-color: #4caf50;
   color: #fff;
   padding: 10px 20px;
+  font-size: 1em;
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.form-table input[type="submit"]:hover {
-  background-color: #0056b3;
+.calculate-button:hover {
+  background-color: #45a049;
 }
 
-/* Add more styles for consistent UI if needed */
+.form-submit-section {
+  text-align: center;
+}
