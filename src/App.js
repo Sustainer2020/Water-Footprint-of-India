@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 import StatePage from "./components/StatePage";
 import IndiaMap from "./components/IndiaMap";
 import Calculator from "./components/WaterCalculator.js";
-
+import StateComparison from "./components/StateComparison.js";
 const Home = ({ setSelectedState }) => {
     function handleStateClick(stateName) {
         setSelectedState(stateName);
@@ -43,6 +43,10 @@ const App = () => {
                 <Route
                     path={`/${selectedState}`}
                     element={<StatePage selectedState={selectedState} />}
+                />
+                <Route
+                    path="/stateComparison"
+                    element={<StateComparison />}
                 />
             </Routes>
             <Footer />

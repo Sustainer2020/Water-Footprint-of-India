@@ -1,28 +1,54 @@
 /* WaterCalculator.css */
-.water-calculator-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+
+.container {
+  margin-top: 20px;
 }
 
-.water-form {
-  background-color: #f7f7f7;
-  padding: 20px;
+.card {
+  border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-section {
+.card-header {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.introduction {
+  font-size: 1.1em;
+}
+
+.table {
+  width: 100%;
   margin-bottom: 20px;
+  border-collapse: collapse;
 }
 
-.form-section h2 {
-  color: #333;
-  font-size: 1.2em;
-  margin-bottom: 10px;
+.table td,
+.table th {
+  border: 1px solid #ddd;
+  padding: 10px;
 }
 
-.calculate-button {
+.table th {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.form-submit-section {
+  margin-top: 20px;
+}
+
+.btn-primary {
   background-color: #4caf50;
   color: #fff;
   padding: 10px 20px;
@@ -32,10 +58,6 @@
   cursor: pointer;
 }
 
-.calculate-button:hover {
+.btn-primary:hover {
   background-color: #45a049;
-}
-
-.form-submit-section {
-  text-align: center;
 }

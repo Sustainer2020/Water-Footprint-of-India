@@ -1,0 +1,56 @@
+/* Container Styles */
+.container-fluid {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 20px;
+  }
+  
+  /* Dropdown Styles */
+  .dropdown {
+    width: 100%;
+  }
+  
+  /* Button Styles */
+  .btn-success {
+    background-color: #28a745; /* Bootstrap success color */
+    border-color: #218838; /* Border color */
+  }
+  
+  /* Row Styles */
+  .row {
+    margin-bottom: 20px;
+  }
+  
+  /* Col Styles */
+  .col {
+    border-radius: 8px;
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for cards */
+  }
+  
+  /* Heading Styles */
+  h5 {
+    color: #007bff; /* Bootstrap primary color */
+  }
+  
+  /* Pie Chart Styles */
+  .antv-pie-label {
+    font-size: 12px;
+    fill: #ffffff; /* White text color */
+  }
+  
+  .antv-pie-label-line {
+    stroke: #ffffff; /* White line color */
+  }
+  
+  /* Legend Styles */
+  .antv-pie-legend {
+    margin-top: 20px;
+  }
+  
+  /* Legend Item Styles */
+  .antv-pie-legend-item-name {
+    color: #333; /* Text color for legend items */
+  }
+  
+  /* JS File */

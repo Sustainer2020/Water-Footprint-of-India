@@ -1,8 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
-import { Navbar, Nav} from 'react-bootstrap';
-import './Navbar.css'; // Create a new file Navbar.css
-// import logo from "~/public/assets"
+import { Navbar, Nav } from 'react-bootstrap';
+import './Navbar.css';
 
 const AppNavbar = () => {
   const [navbarStyle, setNavbarStyle] = useState({});
@@ -24,18 +22,16 @@ const AppNavbar = () => {
 
   return (
     <>
-    <Navbar className='nav' data-bs-theme="dark">
-        <div className='m-4 nav-bar'>
-        <Navbar.Brand href="/">
-        Water Footprints Of India
-        </Navbar.Brand>
-          <div>
-          <Nav className="me-auto">
+      <Navbar className='nav' style={navbarStyle} data-bs-theme="dark" expand="lg">
+        <div className='m-4 nav-bar d-flex justify-content-between align-items-center'>
+          <Navbar.Brand href="/">
+            Water Footprints Of India
+          </Navbar.Brand>
+          <Nav>
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/calculator">Calculator</Nav.Link>
             <Nav.Link href="/aboutUs">About Us</Nav.Link>
           </Nav>
-          </div>
         </div>
       </Navbar>
     </>
