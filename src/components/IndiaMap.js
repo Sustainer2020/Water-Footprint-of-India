@@ -107,7 +107,7 @@ function IndiaMap({ onStateClick }) {
     .range(COLOR_RANGE);
 
     function onLocationClick(geo) {
-      const clickedState = geo.properties.NAME_1;
+      const clickedState = geo.properties.name;
       // setStateCode(geo.id);
       // setStateName(clickedState);
       

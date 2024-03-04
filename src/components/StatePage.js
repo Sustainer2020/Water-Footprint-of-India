@@ -27,7 +27,7 @@ const StatePage = ({ selectedState }) => {
     <div className='d-flex flex-column h-100'>
       <div className="col-md-10 p-5 vh-100">
         <div className="mt-4">
-          <h2>State Page of Uttarakhand</h2>
+          <h2>State Page of {selectedState}</h2>
           <br />
           <div>
             <label>Select Chart Type:</label>
