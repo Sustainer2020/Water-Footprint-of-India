@@ -15,8 +15,12 @@ const HeroSection = () => {
         The water footprint measures water use and pollution for goods, services, and processes. It helps companies, governments, and individuals understand dependencies, resource protection, and food/energy security. It includes direct and indirect water use and consists of green, blue, and grey components. Managing water footprints is vital for sustainable water use and preservation.by identifying the source of water consumed, such as rainfall, soil moisture, surface water, or groundwater, and the volume of fresh water needed to assimilate pollutants.
 </p>
       </div>
-    </div>
-      <Button variant="dark" href="/calculator">Calculate Your Water Footprint</Button>
+    </div >
+      <>
+      <Button variant="dark" href="/calculator">Calculate Your Water Footprint</Button>{' '}
+      <Button variant="dark" href="/stateComparison">Compare States</Button>
+      </>
+
       </div>
       
   );
