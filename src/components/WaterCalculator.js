@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './WaterCalculator.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import WaterFootprintModal from './WaterFootprintModal'; 
 function WaterFootprintCalculator() {
   const [selectedItem, setSelectedItem] = useState('basic'); // Default selection
   const [country, setCountry] = useState('');
@@ -34,12 +34,99 @@ function WaterFootprintCalculator() {
   const [poolcapacity, setPoolcapacity] = useState('');
   const [poolnumber, setPoolnumber] = useState('');
   const [income, setIncome] = useState('');
-
+  const [showModal, setShowModal] = useState(false);
   
   const handleDropdownChange = (e) => {
     setSelectedItem(e.target.value);
   };
 
+  const [waterFootprint, setWaterFootprint] = useState(null);
+
+  const calculateWaterFootprint = () => {
+    const numericFields = [
+      { name: 'Cereal products', value: cereal },
+      { name: 'Meat products', value: meat },
+      { name: 'Dairy products', value: diary },
+      { name: 'Eggs', value: egg },
+      { name: 'Vegetables', value: vegetable },
+      { name: 'Fruits', value: fruit },
+      { name: 'Showers per day', value: showernumber },
+      { name: 'Shower minutes', value: showerminute },
+      { name: 'Baths per week', value: bathnumber },
+      { name: 'Tap1', value: tap1 },
+      { name: 'Tap2', value: tap2 },
+      { name: 'Laundry loads per week', value: laundryload },
+      { name: 'Car washes per week', value: carweek },
+      { name: 'Garden waterings per week', value: gardenweek },
+      { name: 'Garden watering minutes', value: gardenminute },
+      { name: 'Rinsing minutes per week', value: rinsingminute },
+      { name: 'Pool capacity', value: poolcapacity },
+      { name: 'Pool empties per year', value: poolnumber },
+    ];
+  
+    // Check for non-numeric values in numeric fields
+    const invalidFields = numericFields.filter(field => isNaN(parseFloat(field.value)));
+  
+    if (invalidFields.length > 0) {
+      const fieldNames = invalidFields.map(field => field.name).join(', ');
+      alert(`Please enter valid numeric values in the following fields: ${fieldNames}`);
+      return;
+    }
+  
+    if (selectedItem === 'basic') {
+      // Basic water footprint calculation equation
+      let basicWaterFootprint =
+        parseFloat(cereal) +
+        parseFloat(meat) +
+        parseFloat(diary) +
+        parseFloat(egg) +
+        parseFloat(vegetable) +
+        parseFloat(fruit) +
+        parseFloat(showernumber) * parseFloat(showerminute) * 365 +
+        parseFloat(bathnumber) * 150 +
+        parseFloat(tap1) * parseFloat(tap2) +
+        parseFloat(laundryload) * 150 +
+        parseFloat(carweek) * 150 +
+        parseFloat(gardenweek) * parseFloat(gardenminute) +
+        parseFloat(rinsingminute) +
+        parseFloat(poolcapacity) * parseFloat(poolnumber) * 1000;
+
+      setWaterFootprint(basicWaterFootprint);
+    } else if (selectedItem === 'advanced') {
+      // Advanced water footprint calculation equation
+      let advancedWaterFootprint =
+        parseFloat(cereal) +
+        parseFloat(meat) +
+        parseFloat(diary) +
+        parseFloat(egg) +
+        parseFloat(fat) +
+        parseFloat(sugar) +
+        parseFloat(vegetable) +
+        parseFloat(fruit) +
+        parseFloat(root) +
+        parseFloat(coffee) +
+        parseFloat(tea) +
+        parseFloat(showernumber) * parseFloat(showerminute) * (showertype === 'standard' ? 365 : 182.5) +
+        parseFloat(bathnumber) * 150 +
+        parseFloat(tap1) * parseFloat(tap2) +
+        parseFloat(laundryload) * 150 +
+        (toilettype === 'Eco' ? 0 : parseFloat(dishnumber) * parseFloat(dishminute) * parseFloat(dishweek) * 52) +
+        parseFloat(carweek) * 150 +
+        parseFloat(gardenweek) * parseFloat(gardenminute) +
+        parseFloat(rinsingminute) +
+        parseFloat(poolcapacity) * parseFloat(poolnumber) * 1000;
+
+      setWaterFootprint(advancedWaterFootprint);
+    }
+    setShowModal(true);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    calculateWaterFootprint();
+  };
   return (
     <div className="container">
       <div className="row">
@@ -69,8 +156,7 @@ function WaterFootprintCalculator() {
               <td width="50%">
                 <select name="Country_ID" value={country} onChange={(e) => setCountry(e.target.value)}>
                   <option value="0">Select a Country</option>
-                  <option value="1">Albania</option>
-                  <option value="2">Algeria</option>
+                  <option value="1">India</option>
                   {/* Render other country options here */}
                 </select>
               </td>
@@ -133,7 +219,13 @@ function WaterFootprintCalculator() {
                 <span> number per day</span>
               </td>
             </tr>
-           
+            <tr>
+              <td>What is the average length of each shower?</td>
+              <td>
+                <input name="showerminute" size="3" type="text" value={showerminute} onChange={(e) => setShowerminute(e.target.value)} />
+               minute per shower
+              </td>
+            </tr>
             <tr>
               <td>How many baths do you have each week?</td>
               <td>
@@ -234,8 +326,7 @@ function WaterFootprintCalculator() {
         <td width="50%">
           <select name="Country_ID" value={country} onChange={(e) => setCountry(e.target.value)}>
             <option value="0">Select a Country</option>
-            <option value="1">Albania</option>
-            <option value="2">Algeria</option>
+            <option value="1">India</option>
             {/* Render other country options here */}
           </select>
         </td>
@@ -482,7 +573,7 @@ function WaterFootprintCalculator() {
           
 
               <div className="form-submit-section text-center">
-                <button className="btn btn-primary" type="submit">
+                <button className="btn btn-primary" type="submit" onClick={handleSubmit}>
                   Calculate my water footprint
                 </button>
               </div>
@@ -490,6 +581,7 @@ function WaterFootprintCalculator() {
           </div>
         </div>
       </div>
+      <WaterFootprintModal show={showModal} onHide={handleCloseModal} waterFootprint={waterFootprint} />
     </div>
   );
 }

@@ -1,0 +1,40 @@
+/* dashboard.css */
+
+/* Customize the background and text colors */
+.col-md-2.bg-dark {
+    background-color: #343a40; /* Dark background color */
+    color: #ffffff; /* Light text color */
+  }
+  
+  /* Style the heading */
+  h4.text-light {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Style dropdowns */
+  .dropdown-title {
+    font-weight: bold;
+  }
+  
+  /* Style dropdown items */
+  .dropdown-item {
+    color: #343a40; /* Dark color for dropdown items */
+  }
+  
+  /* Style buttons */
+  .btn-dark {
+    background-color: #212529; /* Slightly darker background color for buttons */
+    border-color: #212529;
+  }
+  
+  /* Add hover effect to buttons */
+  .btn-dark:hover {
+    background-color: #495057; /* Darker color on hover */
+  }
+  
+  /* Add focus effect to buttons */
+  .btn-dark:focus {
+    box-shadow: 0 0 0 0.2rem rgba(52, 58, 64, 0.5); /* Slight shadow on focus */
+  }
+  

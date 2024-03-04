@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Pie, Bar } from '@ant-design/plots';
 import StateData from '../data/StateData.json';
-//import Dashboard from './dashboard';
-// import '../styles.css';
+import Dashboard from './dashboard';
+import './statePage.css';
+// import '../styles.css'; // Import your custom styles
 
 const StatePage = ({ selectedState }) => {
   const [chartType, setChartType] = useState('pie');
@@ -24,30 +25,29 @@ const StatePage = ({ selectedState }) => {
 
   return (
     <div className='d-flex flex-column h-100'>
-
-     
-      <div className="right col-md-10 p-5 vh-100">
+      <div className="col-md-10 p-5 vh-100">
         <div className="mt-4">
           <h2>State Page of Uttarakhand</h2>
           <br />
           <div>
             <label>Select Chart Type:</label>
-            <select value={chartType} onChange={(e) => handleChartTypeChange(e.target.value)}>
+            <select className="form-control" value={chartType} onChange={(e) => handleChartTypeChange(e.target.value)}>
               <option value="pie">Pie Chart</option>
               <option value="bar">Bar Chart</option>
             </select>
           </div>
           <br />
-          {/* ... other content ... */}
-          <div ><h3 id="industriesData">Industries Data</h3>
-          {renderChart('industriesData', selectedState)}</div>
+              
+            <h3 id="industriesData">Industries Data</h3>
+            {renderChart('industriesData', selectedState)}
           
           <h3 id="agricultureData">Agriculture Data</h3>
           {renderChart('fruitsData', selectedState)}
           <h3 id="vegetablesData">Vegetables Data</h3>
           {renderChart('vegetablesData', selectedState)}
           <h3 id="spicesData">Spices Data</h3>
-          {renderChart('spicesData', selectedState)} {/* ... other charts ... */}
+          {renderChart('spicesData', selectedState)}
+          {/* ... other charts ... */}
         </div>
       </div>
     </div>

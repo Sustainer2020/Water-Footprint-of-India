@@ -1,0 +1,43 @@
+/* In your styles.css file or component */
+body {
+    font-family: 'Roboto', sans-serif; /* Replace with your desired font */
+  }
+  /* In your styles.css file or component */
+.right {
+    background-color: #f5f5f5; /* Light background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  }
+  /* In your styles.css file or component */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+/* In your styles.css file or component */
+.chart-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #fff;
+  }
+/* In your styles.css file or component */
+h2, h3 {
+    margin-bottom: 10px;
+  }
+/* In your styles.css file or component */
+.chart-box {
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .chart-box:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+        

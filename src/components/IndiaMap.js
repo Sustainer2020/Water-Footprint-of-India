@@ -121,7 +121,11 @@ function IndiaMap({ onStateClick }) {
 
   return (
     <div className="full-width-height container">
-      <h1 className="no-margin center">States and UTs</h1>
+      <h1 className="no-margin center">States and UTs
+      <br/>
+      
+      </h1>
+      <div>( Check your state's Water Consumption by clicking on it.) </div>
         <ComposableMap
           projectionConfig={PROJECTION_CONFIG}
           projection="geoMercator"

@@ -1,9 +1,9 @@
 /* src/styles.css */
+
 :root {
     --primary-color: #81d9d3;
-    --navbar-background-color: transparent;
-    --background-gradient-start: #fcfcfd;
-    --background-gradient-end: #ebf0f1;
+    /* --background-gradient-start: #fcfcfd; */
+    /* --background-gradient-end: #ebf0f1; */
     --big-heading-font-family: "Montserrat", sans-serif;
     --big-heading-font-size: 48px;
     --big-heading-font-weight: bold;
@@ -12,70 +12,100 @@
     --short-description-font-size: 18px;
     --short-description-text-color: #2e5b6b;
     --navbar-height: 100px;
-    --navbar-color:black;
     --navbar-button-font-family: "Montserrat", sans-serif;
     --navbar-button-font-size: 25px;
     --navbar-button-font-weight: 600;
     --navbar-button-text-color: white;
     --navbar-button-hover-color: #f9a560;
     --interactive-map-hover-color: #f9a560;
-}
-
-.fixed-button-group {
-    position: fixed;
-    top: 50%; /* Adjust the desired position from the top */
-    left: 10px; /* Adjust the desired position from the left */
-    transform: translateY(-50%);
-    /* background-color: black; */
-    /* Add any additional styling properties you want for the fixed button group */
   }
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
-body {
-   
+  
+  body {
     font-family: var(--short-description-font-family);
     font-size: var(--short-description-font-size);
     color: var(--short-description-text-color);
-    /* background: linear-gradient(
-        to bottom,
-        var(--background-gradient-start),
-        var(--background-gradient-end)
-    ); */
-    /* background-image: url(C:/Users/MSI/Desktop/Project/water/public/assets/91689.jpg); */
-    height: 100vh;
-}
-
-#root{
-    height: 100vh;
-}
-
-.navbar {
-    background-color: var(--navbar-background-color);
+    background: linear-gradient(to bottom, var(--background-gradient-start), var(--background-gradient-end));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar {
+    background-color: transparent;
     height: var(--navbar-height);
-}
-.navbar .navbar-brand{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: var(--navbar-button-font-size);
-    font-weight: var(--navbar-button-font-weight);
-    color: var(--navbar-button-text-color);
-}
-
-.navbar .nav-link {
+  }
+  
+  .navbar .navbar-brand,
+  .navbar .nav-link {
     font-family: var(--navbar-button-font-family);
     font-size: var(--navbar-button-font-size);
     font-weight: var(--navbar-button-font-weight);
     color: var(--navbar-button-text-color);
-}
-
-.navbar .nav-link:hover {
+  }
+  
+  .navbar .nav-link:hover {
     color: var(--navbar-button-hover-color);
-}
-
-
-.map-state:hover {
+  }
+  
+  .fixed-button-group {
+    position: fixed;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+  
+  .fixed-button-group button {
+    margin-bottom: 10px;
+    font-size: 18px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .fixed-button-group button:hover {
+    background-color: #218838;
+  }
+  
+  .map-state:hover {
     fill: var(--interactive-map-hover-color);
-}
+  }
+  /* styles.css */
+
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  /* Additional Styles for Page Elements */
+  .container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-family: var(--big-heading-font-family);
+    font-size: var(--big-heading-font-size);
+    font-weight: var(--big-heading-font-weight);
+    color: var(--big-heading-text-color);
+    margin-top: 20px;
+  }
+
+
