@@ -11,7 +11,7 @@ function WaterFootprintModal({ show, onHide, waterFootprint }) {
         <Modal.Title>Water Footprint Result</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>Your water footprint is: {waterFootprint} liters.</p>
+        <p>Your annual water footprint is: {waterFootprint} m³.</p>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onHide}>

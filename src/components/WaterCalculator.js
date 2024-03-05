@@ -35,13 +35,44 @@ function WaterFootprintCalculator() {
   const [poolnumber, setPoolnumber] = useState('');
   const [income, setIncome] = useState('');
   const [showModal, setShowModal] = useState(false);
-  
+  const [gender, setGender] = useState("");
+  const [dietaryHabit, setDietaryHabit] = useState("");
+  const [grossYearlyIncome, setGrossYearlyIncome] = useState("");
   const handleDropdownChange = (e) => {
     setSelectedItem(e.target.value);
   };
 
+
   const [waterFootprint, setWaterFootprint] = useState(null);
 
+  const handleGenderChange = (e) => {
+    const selectedGender = e.target.value;
+
+    // Set values based on the selected gender
+    if (selectedGender === 'male') {
+      // Set values for male
+      setGender(55); 
+    } else if (selectedGender === 'female') {
+      // Set values for female
+      setGender(50); 
+      
+    }
+  };
+  const handleDietaryHabitChange = (e) => {
+    const selectedDietaryHabit = e.target.value;
+
+    // Set values based on the selected dietary habit
+    if (selectedDietaryHabit === 'vegetarian') {
+      // Set values for vegetarian
+      setDietaryHabit(50);
+      // Additional logic or state updates if needed
+    } else if (selectedDietaryHabit === 'meat_consumer') {
+      // Set values for non-vegetarian
+      setDietaryHabit(70);
+      // Additional logic or state updates if needed
+    }
+    console.log(dietaryHabit);
+  };
   const calculateWaterFootprint = () => {
     const numericFields = [
       { name: 'Cereal products', value: cereal },
@@ -63,33 +94,25 @@ function WaterFootprintCalculator() {
       { name: 'Pool capacity', value: poolcapacity },
       { name: 'Pool empties per year', value: poolnumber },
     ];
-  
+   
     // Check for non-numeric values in numeric fields
-    const invalidFields = numericFields.filter(field => isNaN(parseFloat(field.value)));
+    // const invalidFields = numericFields.filter(field => isNaN(parseFloat(field.value)));
   
-    if (invalidFields.length > 0) {
-      const fieldNames = invalidFields.map(field => field.name).join(', ');
-      alert(`Please enter valid numeric values in the following fields: ${fieldNames}`);
-      return;
-    }
+    // if (invalidFields.length > 0) {
+    //   const fieldNames = invalidFields.map(field => field.name).join(', ');
+    //   alert(`Please enter valid numeric values in the following fields: ${fieldNames}`);
+    //   return;
+    // }
   
     if (selectedItem === 'basic') {
+      console.log(dietaryHabit);
       // Basic water footprint calculation equation
       let basicWaterFootprint =
-        parseFloat(cereal) +
-        parseFloat(meat) +
-        parseFloat(diary) +
-        parseFloat(egg) +
-        parseFloat(vegetable) +
-        parseFloat(fruit) +
-        parseFloat(showernumber) * parseFloat(showerminute) * 365 +
-        parseFloat(bathnumber) * 150 +
-        parseFloat(tap1) * parseFloat(tap2) +
-        parseFloat(laundryload) * 150 +
-        parseFloat(carweek) * 150 +
-        parseFloat(gardenweek) * parseFloat(gardenminute) +
-        parseFloat(rinsingminute) +
-        parseFloat(poolcapacity) * parseFloat(poolnumber) * 1000;
+      400+
+        parseFloat(gender)+
+        parseFloat(dietaryHabit)+
+        parseFloat(grossYearlyIncome)*0.005
+        ;
 
       setWaterFootprint(basicWaterFootprint);
     } else if (selectedItem === 'advanced') {
@@ -150,172 +173,50 @@ function WaterFootprintCalculator() {
                 <div>
                   <h3>Basic Calculator</h3>
                   <table className="table">
-                      <tbody>
-                        <tr>
-              <td width="50%">Country of residence</td>
-              <td width="50%">
-                <select name="Country_ID" value={country} onChange={(e) => setCountry(e.target.value)}>
-                  <option value="0">Select a Country</option>
-                  <option value="1">India</option>
-                  {/* Render other country options here */}
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Food consumption</strong></td>
-            </tr>
-            <tr>
-              <td>Cereal products (wheat, rice, maize, etc.)</td>
-              <td>
-                <input name="cereal" size="3" type="text" value={cereal} onChange={(e) => setCereal(e.target.value)} />
-                <span> kg per week</span>
-              </td>
-            </tr>
-            <tr>
-              <td>Meat products</td>
-              <td>
-                <input name="meat" size="3" type="text" value={meat} onChange={(e) => setMeat(e.target.value)} />
-                <span> kg per week</span>
-              </td>
-            </tr>
-            <tr>
-              <td>Dairy products</td>
-              <td>
-                <input name="diary" size="3" type="text" value={diary} onChange={(e) => setDiary(e.target.value)} />
-                <span> kg per week</span>
-              </td>
-            </tr>
-            <tr>
-              <td>Eggs</td>
-              <td>
-                <input name="egg" size="3" type="text" value={egg} onChange={(e) => setEgg(e.target.value)} />
-                <span> number per week</span>
-              </td>
-            </tr>
-            <tr>
-              <td>Vegetables</td>
-              <td>
-                <input name="vegetable" size="3" type="text" value={vegetable} onChange={(e) => setVegetable(e.target.value)} />
-                <span> kg per week</span>
-              </td>
-            </tr>
-            <tr>
-              <td>Fruits</td>
-              <td>
-                <input name="fruit" size="3" type="text" value={fruit} onChange={(e) => setFruit(e.target.value)} />
-                <span> kg per week</span>
-              </td>
-            </tr>
-
-        
-            <tr>
-              <td><strong>Domestic water use - indoors</strong></td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>How many showers do you take each day?</td>
-              <td>
-                <input name="showernumber" size="3" type="text" value={showernumber} onChange={(e) => setShowernumber(e.target.value)} />
-                <span> number per day</span>
-              </td>
-            </tr>
-            <tr>
-              <td>What is the average length of each shower?</td>
-              <td>
-                <input name="showerminute" size="3" type="text" value={showerminute} onChange={(e) => setShowerminute(e.target.value)} />
-               minute per shower
-              </td>
-            </tr>
-            <tr>
-              <td>How many baths do you have each week?</td>
-              <td>
-                <input name="bathnumber" size="3" type="text" value={bathnumber} onChange={(e) => setBathnumber(e.target.value)} />
-                <span> number per week</span>
-              </td>
-            </tr>
-            <tr>
-              <td>How many times per day do you brush your teeth, shave or wash your hand?</td>
-              <td>
-                <input name="tap1" size="3" type="text" value={tap1} onChange={(e) => setTap1(e.target.value)} />
-                <span> number per day</span>
-              </td>
-            </tr>
-            <tr>
-              <td>Do you leave the tap running when brushing your teeth and shaving?</td>
-              <td>
-                <input name="tap2" value="20" type="radio" checked={tap2 === '20'} onChange={() => setTap2('20')} />
-                Yes
-                <input name="tap2" value="1" type="radio" checked={tap2 === '1'} onChange={() => setTap2('1')} />
-                No
-              </td>
-            </tr>
-            <tr>
-              <td>How many loads of laundry do you do in an average week?</td>
-              <td>
-                <input name="laundryload" size="3" type="text" value={laundryload} onChange={(e) => setLaundryload(e.target.value)} />
-                <span> times per week</span>
-              </td>
-            </tr>
-  
-            <tr>
-              <td><strong>Domestic water use - outdoors</strong></td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>How many times per week do you wash a car?</td>
-              <td>
-                <input name="carweek" size="3" type="text" value={carweek} onChange={(e) => setCarweek(e.target.value)} />
-                <span> number per week</span> 
-              </td>
-            </tr>
-            <tr>
-              <td>How many times do you water your garden each week?</td>
-              <td>
-                <input name="gardenweek" size="3" type="text" value={gardenweek} onChange={(e) => setGardenweek(e.target.value)} />
-                <span> number per week</span> 
-              </td>
-            </tr>
-            <tr>
-              <td>How long do you water your garden each time?</td>
-              <td>
-                <input name="gardenminute" size="3" type="text" value={gardenminute} onChange={(e) => setGardenminute(e.target.value)} />
-                minute per watering
-              </td>
-            </tr>
-            <tr>
-              <td>How long per week do you spend rinsing equipment, driveways, or sidewalks each week?</td>
-              <td>
-                <input name="rinsingminute" size="3" type="text" value={rinsingminute} onChange={(e) => setRinsingminute(e.target.value)} />
-                minute per week
-              </td>
-            </tr>
-            <tr>
-              <td>If you have a swimming pool what is its capacity?</td>
-              <td>
-                <input name="poolcapacity" size="3" type="text" value={poolcapacity} onChange={(e) => setPoolcapacity(e.target.value)} />
-                cubic meter
-              </td>
-            </tr>
-            <tr>
-              <td>How many times per year do you empty your swimming pool?</td>
-              <td>
-                <input name="poolnumber" size="3" type="text" value={poolnumber} onChange={(e) => setPoolnumber(e.target.value)} />
-                number per year
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Industrial goods consumption</strong></td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>What is your gross yearly income? (Only that part of income which is consumed by you).</td>
-              <td>
-                <input name="income" size="10" type="text" value={income} onChange={(e) => setIncome(e.target.value)} />
-                US$ per year
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                  <tbody>
+    <tr>
+      <td width="50%">Country of residence</td>
+      <td width="50%">
+        <select name="Country_ID" value={country} onChange={(e) => setCountry(e.target.value)}>
+          <option value="0">Select a Country</option>
+          <option value="1">India</option>
+          {/* Render other country options here */}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td>
+        <label>
+          <input type="radio" name="gender" value="male" onChange={handleGenderChange} /> Male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="female" onChange={handleGenderChange} /> Female
+        </label>
+        {/* Add more options if needed */}
+      </td>
+    </tr>
+    <tr>
+      <td>Dietary Habit</td>
+      <td>
+        <label>
+          <input type="radio" name="dietary_habit" value="vegetarian" onChange={handleDietaryHabitChange} /> Vegetarian
+        </label>          
+        <label>
+          <input type="radio" name="dietary_habit" value="meat_consumer" onChange={handleDietaryHabitChange} /> Non Vegetarian
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td>Gross Yearly Income</td>
+      <td>
+        <input type="number" name="gross_yearly_income" value={grossYearlyIncome} onChange={(e) => setGrossYearlyIncome(e.target.value)} />
+        <br/> 
+          (₹ per year, Only that part of family income consumed by yourself.)
+      </td>
+    </tr>
+  </tbody>
+  </table>
                 </div>
               )}
               {selectedItem === 'advanced' && (
