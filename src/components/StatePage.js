@@ -38,14 +38,14 @@ const StatePage = ({ selectedState }) => {
           </div>
           <br />
               
-            <h3 id="industriesData">Industries Data</h3>
+            <h3 id="industriesData">Industrial Sector</h3>
             {renderChart('industriesData', selectedState)}
           
-          <h3 id="agricultureData">Agriculture Data</h3>
+          <h3 id="agricultureData">Agricultural Sector</h3>
           {renderChart('fruitsData', selectedState)}
-          <h3 id="vegetablesData">Vegetables Data</h3>
+          <h3 id="vegetablesData">Vegetables Sector</h3>
           {renderChart('vegetablesData', selectedState)}
-          <h3 id="spicesData">Spices Data</h3>
+          <h3 id="spicesData">Spice Sector</h3>
           {renderChart('spicesData', selectedState)}
           {/* ... other charts ... */}
         </div>
